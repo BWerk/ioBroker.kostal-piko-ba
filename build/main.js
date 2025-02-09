@@ -216,13 +216,13 @@ class KostalPikoBA extends utils.Adapter {
         this.log.info(`Polltime daily statistics set to: ${this.config.polltimedaily / 1000} seconds`);
         if (!this.config.polltimetotal) {
             this.config.polltimetotal = 200000;
-            this.log.warn(`Polltime alltime statistics not set or zero - will be set to ${this.config.polltimetotal / 1000} seconds`);
+            this.log.warn(`Polltime all-time statistics not set or zero - will be set to ${this.config.polltimetotal / 1000} seconds`);
         }
         if (this.config.polltimetotal < this.config.polltimedaily * 2) {
             this.config.polltimetotal = this.config.polltimedaily * 2;
             this.log.warn(`Polltime for all-time statistics should be at least double the daily statistics poll time - it will be set to ${this.config.polltimetotal / 1000} seconds`);
         }
-        this.log.info(`Polltime for alltime statistics set to: ${this.config.polltimetotal / 1000} seconds`);
+        this.log.info(`Polltime for all-time statistics set to: ${this.config.polltimetotal / 1000} seconds`);
         //#endregion
         if (this.config.ipaddress) {
             KostalRequest1 =
@@ -886,8 +886,10 @@ class KostalPikoBA extends utils.Adapter {
                             if (yieldProduced.$.Slot === "Total") {
                                 const yieldProducedValue = yieldProduced.YieldValue?.[0]?.$?.Value;
                                 if (yieldProducedValue !== undefined) {
+                                    const Yield_KWh = parseFloat((yieldProducedValue/1000).toFixed(1));
+									this.log.info('Yield KWh with one decimal: ' + Yield_KWh);
                                     void this.setState("Statistics_Total.Yield", {
-                                        val: Math.round(yieldProducedValue / 1000),
+                                        val: Yield_KWh,
                                         ack: true,
                                     });
                                 }
