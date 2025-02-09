@@ -1,9 +1,9 @@
 {
 	"common": {
 		"name": "kostal-piko-ba",
-		"version": "5.0.2-test",
+		"version": "5.0.2-test1",
 		"news": {
-			"5.0.2-test": {
+			"5.0.2-test1": {
 				"de": "Test for decimal"
 
 			},
