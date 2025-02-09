@@ -917,10 +917,10 @@ class KostalPikoBA extends utils.Adapter {
 								if (yieldProduced.$.Slot === "Total") {
 									const yieldProducedValue = yieldProduced.YieldValue?.[0]?.$?.Value;
 									if (yieldProducedValue !== undefined) {
-										yieldProducedValue = yieldProducedValue / 1000;
-										yieldProducedValue = parseFloat(yieldProducedValue.toFixed(1));
+										const Yield_KWh = parseFloat((yieldProducedValue/1000).toFixed(1));
+										this.log.info('Yield KWh with one decimal: ' + Yield_KWh);
 										void this.setState("Statistics_Total.Yield", {
-											val: yieldProducedValue,
+											val: Yield_KWh,
 											ack: true,
 										});
 									}
