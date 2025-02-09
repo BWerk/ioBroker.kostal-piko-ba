@@ -239,7 +239,7 @@ class KostalPikoBA extends utils.Adapter {
 				`Polltime for all-time statistics should be at least double the daily statistics poll time - it will be set to ${this.config.polltimetotal / 1000} seconds`,
 			);
 		}
-		this.log.info(`Polltime for alltime statistics set to: ${this.config.polltimetotal / 1000} seconds`);
+		this.log.info(`Polltime for all-time statistics set to: ${this.config.polltimetotal / 1000} seconds`);
 		//#endregion
 
 		if (this.config.ipaddress) {
