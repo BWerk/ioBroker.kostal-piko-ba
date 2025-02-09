@@ -1,8 +1,12 @@
 {
 	"common": {
 		"name": "kostal-piko-ba",
-		"version": "5.0.2",
+		"version": "5.0.2-test",
 		"news": {
+			"5.0.2-test": {
+				"de": "Test for decimal"
+
+			},
 			"5.0.2": {
 				"en": "fix chai-as-promised\nyear 2025 changes",
 				"de": "chai-as-promised repariert\nJahr 2025 Änderungen",
