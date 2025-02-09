@@ -917,8 +917,10 @@ class KostalPikoBA extends utils.Adapter {
 								if (yieldProduced.$.Slot === "Total") {
 									const yieldProducedValue = yieldProduced.YieldValue?.[0]?.$?.Value;
 									if (yieldProducedValue !== undefined) {
+										yieldProducedValue = yieldProducedValue / 1000;
+										yieldProducedValue = parseFloat(yieldProducedValue.toFixed(1));
 										void this.setState("Statistics_Total.Yield", {
-											val: Math.round(yieldProducedValue / 1000),
+											val: yieldProducedValue,
 											ack: true,
 										});
 									}
